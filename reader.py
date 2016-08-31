@@ -21,7 +21,6 @@ class Report():
 
         print("Most Expensive Item: {}\n* * * * * * * *\n".format(return_price))
 
-    
     # Show the Least Expensive Item
     def get_least_expensive(self):
         return_price = 0
@@ -31,7 +30,6 @@ class Report():
                 return_price = i["price"]
 
         print("Least Expensive Item: {}\n* * * * * * * *\n".format(return_price))
-
 
     # Show the Total Revenue
     def get_total_revenue(self):
@@ -71,7 +69,7 @@ class Report():
                         best = i
 
         for seller in best_sellers:
-            print("{} {}".format(seller["name"], seller["sold"]))
+            print("{} : {}".format(seller["name"], seller["sold"]))
             
         print("\n* * * * * * * *\n")
 
@@ -93,6 +91,13 @@ def produce_full_report():
     report.get_total_profit()
     report.get_10_best_sellers()
     report.get_sales_by_dept()
+
+# Write a full report to report.txt file
+"""
+def write_report_to_file():
+    report_file = open('report.txt', 'w')
+    report_file.close()
+"""
 
 # Call produce_full_report
 produce_full_report()
