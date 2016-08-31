@@ -1,3 +1,5 @@
+"""A script to display store data."""
+
 import json
 from functools import reduce
 
@@ -41,7 +43,7 @@ def display_top_selling_prices():
 
 
 def get_list_of_departments():
-    # We need all the departments listed in our data file
+    """Returns a list of all the departments mentioned in data file."""
     listings = [item['department'] for item in store_data]
     # However, there are multiple per line
     # So we need to parse them
@@ -68,6 +70,7 @@ def get_sales_per_department(department):
 
 
 def get_sales_for_all_departments():
+    """Prints the sales for all departments."""
     dept_and_sales = {
         dept: get_sales_per_department(dept)
         for dept in get_list_of_departments()
