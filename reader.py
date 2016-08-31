@@ -19,11 +19,10 @@ class Report():
             if i["price"] > return_price:
                 return_price = i["price"]
 
-        print("Most Expensive Item: {}".format(return_price))
+        print("Most Expensive Item: {}\n* * * * * * * *\n".format(return_price))
 
     
     # Show the Least Expensive Item
-
     def get_least_expensive(self):
         return_price = 0
 
@@ -31,28 +30,26 @@ class Report():
             if i["price"] < return_price:
                 return_price = i["price"]
 
-        print("Least Expensive Item: {}".format(return_price))
+        print("Least Expensive Item: {}\n* * * * * * * *\n".format(return_price))
 
 
     # Show the Total Revenue
-
     def get_total_revenue(self):
         total_revenue = 0
 
         for i in data_file:
             total_revenue += i["price"] * i["sold"]
 
-        print("Total Revenue: {}".format(total_revenue))
+        print("Total Revenue: {}\n* * * * * * * *\n".format(total_revenue))
 
     # Show the Total Profit
-
     def get_total_profit(self):
         total_profit = 0
 
         for i in data_file:
             total_profit += (i["price"] - i["cost_to_make"]) * i["sold"]
 
-        print("Total Profit: {}".format(total_profit))
+        print("Total Profit: {}\n* * * * * * * *\n".format(total_profit))
 
     # Show the 10 Best Sellers.
     def get_10_best_sellers(self):
@@ -75,7 +72,8 @@ class Report():
 
         for seller in best_sellers:
             print("{} {}".format(seller["name"], seller["sold"]))
-
+            
+        print("\n* * * * * * * *\n")
 
     # Show the Number Sold by Each Department
     def get_sales_by_dept(self):
@@ -83,15 +81,18 @@ class Report():
 
         for i in data_file:
             print("{} : {}".format(i["department"], i["sold"]))
+            
+        print("\n* * * * * * * *\n")
 
+# Produce / Run a full report on store_data.json file.
+def produce_full_report():
+    report = Report(data_file)    
+    report.get_most_expensive()
+    report.get_least_expensive()
+    report.get_total_revenue()
+    report.get_total_profit()
+    report.get_10_best_sellers()
+    report.get_sales_by_dept()
 
-report = Report(data_file)    
-report.get_most_expensive()
-report.get_least_expensive()
-report.get_total_revenue()
-report.get_total_profit()
-report.get_10_best_sellers()
-report.get_sales_by_dept()
-
-
-
+# Call produce_full_report
+produce_full_report()
