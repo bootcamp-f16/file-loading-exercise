@@ -66,19 +66,9 @@ class Report():
     def get_10_best_sellers(self):
 
         report_string = "Best Sellers\n{}".format(starspace)
-        best_sellers = []
 
-        for i in data_file:
-
-            # Just append the first ten records.
-            if len(best_sellers) < 10:
-                best_sellers.append(i)
-
-            # Compare 'sold' to every best seller
-            else:
-                for best in best_sellers:
-                    if i["sold"] >= best["sold"]:
-                        best = i
+        best_sellers = sorted(data_file, key=lambda k: k['sold'])
+        best_sellers = best_sellers[-11::]
 
         for seller in best_sellers:
             report_string += "{} : {}\n".format(seller["name"], seller["sold"])
