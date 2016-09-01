@@ -77,7 +77,7 @@ class Report():
             # Compare 'sold' to every best seller
             else:
                 for best in best_sellers:
-                    if i["sold"] > best["sold"]:
+                    if i["sold"] >= best["sold"]:
                         best = i
 
         for seller in best_sellers:
