@@ -67,7 +67,6 @@ class Report():
 
         report_string = "Best Sellers\n{}".format(starspace)
         best_sellers = []
-        top_sold = 0
 
         for i in data_file:
 
